@@ -1,2 +1,2 @@
-java -cp target/classes:"target/dependency/*"
+java -cp target/classes:"target/dependency/*" bracket
 
