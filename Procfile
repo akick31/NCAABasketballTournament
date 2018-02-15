@@ -1,2 +1,2 @@
-java -cp target/classes:"target/dependency/*" bracket
+web: java $JAVA_OPTS -cp target/classes:target/dependency/* bracket
 
