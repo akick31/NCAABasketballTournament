@@ -9,6 +9,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.util.Scanner;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
 
 public class bracket {
 	
@@ -1109,8 +1113,8 @@ public class bracket {
 		}
 		return 0;
 	}
-
-public static void main(String[] args) throws IOException{		
+	
+	public static void main(String[] args) throws IOException{		
 		while(true){
 			String East1 = null, East2 = null, East3 = null, East4 = null, East5 = null, East6 = null, 
 					East7 = null, East8 = null, East9 = null, East10 = null, East11 = null, East12 = null, East13 = null, 
@@ -1124,88 +1128,103 @@ public static void main(String[] args) throws IOException{
 					South13 = null, South14 = null, South15 = null, South16 = null;
 	
 	
-	
-	
+
 			Scanner scan = new Scanner(System.in);
 			System.out.println("Input Type: 1 (File) 2 (Manual Input)");
 			int input = scan.nextInt();
 			if (input == 1){
-				System.out.println("Type the file name (include .txt):");
-				scan.nextLine();
-				String fileName = scan.nextLine();
-		        Scanner in;
-		        try {
-		            in = new Scanner(new File(fileName));
-		        } catch (FileNotFoundException e) {
-		            System.out.println("File not found.");
-		            return;
-		        }
-				East1 = in.nextLine();
-				East16 = in.nextLine();
-				East8 = in.nextLine();
-				East9 = in.nextLine();
-				East5 = in.nextLine();
-				East12 = in.nextLine();
-				East4 = in.nextLine();
-				East13 = in.nextLine();
-				East6 = in.nextLine();
-				East11 = in.nextLine();
-				East3 = in.nextLine();
-				East14 = in.nextLine();
-				East7 = in.nextLine();
-				East10 = in.nextLine();
-				East2 = in.nextLine();
-				East15 = in.nextLine();
-				West1 = in.nextLine();
-				West16 = in.nextLine();
-				West8 = in.nextLine();
-				West9 = in.nextLine();
-				West5 = in.nextLine();
-				West12 = in.nextLine();
-				West4 = in.nextLine();
-				West13 = in.nextLine();
-				West6 = in.nextLine();
-				West11 = in.nextLine();
-				West3 = in.nextLine();
-				West14 = in.nextLine();
-				West7 = in.nextLine();
-				West10 = in.nextLine();
-				West2 = in.nextLine();
-				West15 = in.nextLine();
-				Midwest1 = in.nextLine();
-				Midwest16 = in.nextLine();
-				Midwest8 = in.nextLine();
-				Midwest9 = in.nextLine();
-				Midwest5 = in.nextLine();
-				Midwest12 = in.nextLine();
-				Midwest4 = in.nextLine();
-				Midwest13 = in.nextLine();
-				Midwest6 = in.nextLine();
-				Midwest11 = in.nextLine();
-				Midwest3 = in.nextLine();
-				Midwest14 = in.nextLine();
-				Midwest7 = in.nextLine();
-				Midwest10 = in.nextLine();
-				Midwest2 = in.nextLine();
-				Midwest15 = in.nextLine();
-				South1 = in.nextLine();
-				South16 = in.nextLine();
-				South8 = in.nextLine();
-				South9 = in.nextLine();
-				South5 = in.nextLine();
-				South12 = in.nextLine();
-				South4 = in.nextLine();
-				South13 = in.nextLine();
-				South6 = in.nextLine();
-				South11 = in.nextLine();
-				South3 = in.nextLine();
-				South14 = in.nextLine();
-				South7 = in.nextLine();
-				South10 = in.nextLine();
-				South2 = in.nextLine();
-				South15 = in.nextLine();
-				in.close();
-			}
+				JFileChooser chooser = new JFileChooser();
+			    chooser.setCurrentDirectory(new File("."));
+
+			    chooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+			      public boolean accept(File f) {
+			        return f.getName().toLowerCase().endsWith(".txt")
+	 			            || f.isDirectory();
+	 			      }
+	 
+	 			      public String getDescription() {
+	 			        return ".txt";
+	 			      }
+	 			    });
+	 			    String name = "";
+	 			    int r = chooser.showOpenDialog(new JFrame());
+	 			    if (r == JFileChooser.APPROVE_OPTION) {
+	 			      name = chooser.getSelectedFile().getName();
+	 			      System.out.println("\n\n" + name + "\n\n");
+	 			    }
+	 		        Scanner in;
+	 		        try {
+	 		            in = new Scanner(new File(name));
+	 		        } catch (FileNotFoundException e) {
+	 		            System.out.println("File not found.");
+	 		            return;
+	 		        }
+	 				East1 = in.nextLine();
+	 				East16 = in.nextLine();
+	 				East8 = in.nextLine();
+	 				East9 = in.nextLine();
+	 				East5 = in.nextLine();
+	 				East12 = in.nextLine();
+	 				East4 = in.nextLine();
+	 				East13 = in.nextLine();
+	 				East6 = in.nextLine();
+	 				East11 = in.nextLine();
+	 				East3 = in.nextLine();
+	 				East14 = in.nextLine();
+	 				East7 = in.nextLine();
+	 				East10 = in.nextLine();
+	 				East2 = in.nextLine();
+	 				East15 = in.nextLine();
+	 				West1 = in.nextLine();
+	 				West16 = in.nextLine();
+	 				West8 = in.nextLine();
+	 				West9 = in.nextLine();
+	 				West5 = in.nextLine();
+	 				West12 = in.nextLine();
+	 				West4 = in.nextLine();
+	 				West13 = in.nextLine();
+	 				West6 = in.nextLine();
+	 				West11 = in.nextLine();
+	 				West3 = in.nextLine();
+	 				West14 = in.nextLine();
+	 				West7 = in.nextLine();
+	 				West10 = in.nextLine();
+	 				West2 = in.nextLine();
+	 				West15 = in.nextLine();
+	 				Midwest1 = in.nextLine();
+	 				Midwest16 = in.nextLine();
+	 				Midwest8 = in.nextLine();
+	 				Midwest9 = in.nextLine();
+	 				Midwest5 = in.nextLine();
+	 				Midwest12 = in.nextLine();
+	 				Midwest4 = in.nextLine();
+	 				Midwest13 = in.nextLine();
+	 				Midwest6 = in.nextLine();
+	 				Midwest11 = in.nextLine();
+	 				Midwest3 = in.nextLine();
+	 				Midwest14 = in.nextLine();
+	 				Midwest7 = in.nextLine();
+	 				Midwest10 = in.nextLine();
+	 				Midwest2 = in.nextLine();
+	 				Midwest15 = in.nextLine();
+	 				South1 = in.nextLine();
+	 				South16 = in.nextLine();
+	 				South8 = in.nextLine();
+	 				South9 = in.nextLine();
+	 				South5 = in.nextLine();
+	 				South12 = in.nextLine();
+	 				South4 = in.nextLine();
+	 				South13 = in.nextLine();
+	 				South6 = in.nextLine();
+	 				South11 = in.nextLine();
+	 				South3 = in.nextLine();
+	 				South14 = in.nextLine();
+	 				South7 = in.nextLine();
+	 				South10 = in.nextLine();
+	 				South2 = in.nextLine();
+	 				South15 = in.nextLine();
+	 				in.close();
+	 			}
 			
 			else{
 				/**
@@ -1510,6 +1529,18 @@ public static void main(String[] args) throws IOException{
 			}
 			System.out.println("15 " + East15);
 			System.out.println("       ");
+		    System.out.println("       ");
+		    System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
 			
 			
 			
@@ -1746,6 +1777,18 @@ public static void main(String[] args) throws IOException{
 			}
 			System.out.println("15 " + Midwest15);
 			System.out.println("       ");
+		    System.out.println("       ");
+		    System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
 	
 	
 	
@@ -1876,6 +1919,18 @@ public static void main(String[] args) throws IOException{
 			System.out.println("       ");
 			System.out.println("       ");
 			System.out.println("       ");
+		    System.out.println("       ");
+		    System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
 			
 			
 			
@@ -1958,6 +2013,18 @@ public static void main(String[] args) throws IOException{
 			}
 			System.out.println(Eastr2game8string);
 		    System.out.println("       ");
+		    System.out.println("       ");
+		    System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
 		    
 		    
 		    
@@ -2039,6 +2106,18 @@ public static void main(String[] args) throws IOException{
 			}
 			System.out.println(Westr2game8string);
 		    System.out.println("       ");
+		    System.out.println("       ");
+		    System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
 	
 		    
 		    
@@ -2300,6 +2379,18 @@ public static void main(String[] args) throws IOException{
 			}
 			System.out.println(Westr3game4string);
 		    System.out.println("       ");
+		    System.out.println("       ");
+		    System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
+			System.out.println("       ");
 	
 	
 	
@@ -2628,7 +2719,5 @@ public static void main(String[] args) throws IOException{
 		    else if(response.equals("Y") || response.equals("y") || response.equals("yes") || response.equals("Yes")){
 		    } 
 		}
+	}
 }
-}
-
-
