@@ -7,3 +7,9 @@ The bracket.java class houses everything for the program and also runs it.
 
 
 If you have questions, feel free to email me at apkicklighter@gmail.com
+
+------------------------------------------------------------
+
+2/24/18 Update
+
+.zip file was uploaded that includes a .jar file and a GUI interface. Simply download the .zip file and extract the contents. It comes with the 2017tournament.txt file, a README, and the application itself.
